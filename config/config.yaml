@@ -1,0 +1,81 @@
+# Meeting Summarizer & Action Tracker Configuration
+# This file contains optional configuration settings for the CrewAI system
+
+# OpenAI Configuration
+openai:
+  model: "gpt-4o"  # Using the latest GPT-4o model
+  whisper_model: "whisper-1"
+  max_tokens: 1000
+  temperature: 0.3
+
+# Mock Mode Configuration
+mock_mode:
+  enabled: false  # Set to true to use mock responses instead of real API calls
+  
+# Agent Configuration
+agents:
+  transcriber:
+    role: "Meeting Transcriber"
+    max_retries: 3
+    
+  summarizer:
+    role: "Meeting Summarizer"
+    output_format: "markdown"
+    max_tokens: 1000
+    
+  extractor:
+    role: "Action Item Extractor"
+    output_format: "json"
+    max_tokens: 800
+    
+  followup:
+    role: "Follow-up Coordinator"
+    email_format: true
+    max_tokens: 1000
+
+# File Processing Configuration
+file_processing:
+  supported_audio_formats:
+    - ".mp3"
+    - ".wav"
+    - ".m4a"
+    - ".flac"
+  max_file_size_mb: 25  # OpenAI Whisper limit
+  
+# Output Configuration
+output:
+  save_to_files: false
+  output_directory: "./output"
+  timestamp_files: true
+  formats:
+    transcript: "txt"
+    summary: "md"
+    action_items: "json"
+    followup: "txt"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  enable_verbose: true
+  log_to_file: false
+  log_file: "meeting_summarizer.log"
+
+# CrewAI Specific Configuration
+crewai:
+  verbose: true
+  memory: false
+  cache: false
+  max_iter: 1
+  max_execution_time: 300  # 5 minutes timeout
+
+# Error Handling
+error_handling:
+  retry_attempts: 3
+  retry_delay: 2  # seconds
+  continue_on_error: false
+  
+# Performance Settings
+performance:
+  parallel_processing: false
+  batch_size: 1
+  timeout_seconds: 300
