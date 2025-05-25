@@ -1,0 +1,83 @@
+Build a Python project named Meeting Summarizer & Action Tracker using the https://github.com/crewAIInc/marketplace-crew-template template structure. This project must be submission-ready for the https://marketplace.crewai.com/.
+🎯 Project Overview
+
+Create an AI crew that:
+
+    Transcribes meeting audio (via OpenAI Whisper API)
+
+    Summarizes the discussion (via GPT-4 or GPT-3.5)
+
+    Extracts action items (task, owner, deadline)
+
+    Sends a follow-up message (or prints to console)
+
+📁 Directory Structure (Must Follow CrewAI Template)
+
+meeting-summarizer/
+├── agents/
+│   ├── transcriber_agent.py
+│   ├── summarizer_agent.py
+│   ├── extractor_agent.py
+│   └── followup_agent.py
+├── crew/
+│   └── crew.py                   # Defines CrewAI crew using the `crewai` framework
+├── tasks/
+│   └── task.py                   # Task list for agents
+├── config/
+│   └── config.yaml               # Optional config for alternative setups
+├── sample_data/
+│   └── meeting_sample.mp3        # Dummy file for testing
+├── main.py                       # Entry point (runs the full crew)
+├── README.md                     # Detailed instructions and CrewAI compatibility info
+├── requirements.txt              # openai, python-dotenv, crewai
+├── .env.example                  # Includes OPENAI_API_KEY and MOCK_MODE
+└── LICENSE                       # MIT or default
+
+⚙️ Behavior
+
+    Supports a .env flag called MOCK_MODE.
+
+        If true → use hardcoded responses
+
+        If false → use real OpenAI API (Whisper + ChatCompletion)
+
+    Outputs:
+
+        Transcript (text)
+
+        Summary (markdown or plain text)
+
+        Action items (JSON-style list)
+
+        Follow-up email (printed or sent)
+
+📖 README.md Requirements
+
+    Overview of what the project does
+
+    Instructions for setup and .env configuration
+
+    How to run with python main.py
+
+    Example input/output
+
+    Note that this project follows the CrewAI Template
+
+    Link to CrewAI Marketplace
+
+🔐 .env.example Contents
+
+OPENAI_API_KEY=your-api-key-here
+MOCK_MODE=true
+
+✅ Final Output Must:
+
+    Follow CrewAI's crew, agents, and tasks pattern
+
+    Make no reference to or mention of "replit" within any text or files
+
+    Be ready for GitHub submission and CrewAI review
+
+    Work with or without OpenAI keys by supporting mock mode
+
+🎯 Final result: A professional CrewAI-compatible crew, ready for submission at https://marketplace.crewai.com.
